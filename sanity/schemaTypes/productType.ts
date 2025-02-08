@@ -1,9 +1,19 @@
+import { defineField } from "sanity";
 import { TrolleyIcon } from "@sanity/icons";
 
-export default {
+const productType = {
   name: "productType",
   title: "Product type",
   type: "document",
   icon: TrolleyIcon,
-  fields: [],
+  fields: [
+    defineField({
+      name: "name",
+      title: "Product Name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
 };
+
+export default productType;
