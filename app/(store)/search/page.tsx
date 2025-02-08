@@ -7,7 +7,7 @@ const SearchPage = async ({
   };
 }) => {
   const { query } = await searchParams;
-  return <div>Search Page</div>;
+  return <div>Search Page for {query}</div>;
 };
 
 export default SearchPage;
