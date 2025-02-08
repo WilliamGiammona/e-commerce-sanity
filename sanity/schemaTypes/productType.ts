@@ -1,7 +1,7 @@
-import { defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 import { TrolleyIcon } from "@sanity/icons";
 
-const productType = {
+export const productType = defineType({
   name: "productType",
   title: "Product type",
   type: "document",
@@ -65,6 +65,6 @@ const productType = {
       };
     },
   },
-};
+});
 
 export default productType;
