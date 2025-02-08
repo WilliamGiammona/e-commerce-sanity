@@ -43,6 +43,12 @@ const productType = {
       type: "string",
       validation: (Rule) => Rule.required().min(0),
     }),
+    defineField({
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }],
+    }),
   ],
 };
 
