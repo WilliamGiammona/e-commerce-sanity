@@ -70,5 +70,23 @@ export const orderType = defineType({
         }),
       ],
     }),
+    defineField({
+      name: "totalPrice",
+      title: "Total Price",
+      type: "number",
+      validation: (Rule) => Rule.required().min(0),
+    }),
+    defineField({
+      name: "currency",
+      title: "Currency ",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "amountDiscount",
+      title: "Amount Discount",
+      type: "number",
+      validation: (Rule) => Rule.required().min(0),
+    }),
   ],
 });
