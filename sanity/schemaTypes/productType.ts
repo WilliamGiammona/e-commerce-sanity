@@ -50,6 +50,21 @@ const productType = {
       of: [{ type: "reference", to: { type: "category" } }],
     }),
   ],
+  preview: {
+    select: {
+      title: "name",
+      media: "image",
+      subtitle: "price",
+    },
+    prepare: (select) => {
+      const { title, media, subtitle } = select;
+      return {
+        title,
+        media,
+        subtitle: `$${subtitle}`,
+      };
+    },
+  },
 };
 
 export default productType;
