@@ -1,5 +1,5 @@
 import { BasketIcon } from "@sanity/icons";
-import { defineType, defineField } from "sanity";
+import { defineType, defineField, defineArrayMember } from "sanity";
 
 export const orderType = defineType({
   name: "order",
@@ -23,6 +23,52 @@ export const orderType = defineType({
       title: "Stripe Customer Id",
       type: "string",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "stripePaymentIntentId",
+      title: "Stripe Payment Intent Id",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "products",
+      title: "Products",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({
+              name: "product",
+              title: "Product Bought",
+              type: "reference",
+              to: [{ type: "product" }],
+            }),
+            defineField({
+              name: "quantity",
+              title: "Quantity Purchased",
+              type: "number",
+            }),
+          ],
+          preview: {
+            select: {
+              product: "product.name",
+              quantity: "quantity",
+              image: "product.image",
+              price: "product.price",
+              currency: "product.currency",
+            },
+            prepare: (select) => {
+              const { product, quantity, image, price, currency } = select;
+              return {
+                title: `${product} x ${quantity} `,
+                subtitle: `${quantity} x ${price} ${currency}`,
+                media: image,
+              };
+            },
+          },
+        }),
+      ],
     }),
   ],
 });
