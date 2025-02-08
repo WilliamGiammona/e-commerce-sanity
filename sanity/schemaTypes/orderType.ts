@@ -102,5 +102,11 @@ export const orderType = defineType({
         ],
       },
     }),
+    defineField({
+      name: "orderDate",
+      title: "Order Date",
+      type: "datetime",
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 });
