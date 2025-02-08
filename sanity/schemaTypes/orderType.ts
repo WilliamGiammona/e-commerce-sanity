@@ -88,5 +88,19 @@ export const orderType = defineType({
       type: "number",
       validation: (Rule) => Rule.required().min(0),
     }),
+    defineField({
+      name: "status",
+      title: "Order Status",
+      type: "string",
+      options: {
+        list: [
+          { title: "Pending", value: "pending" },
+          { title: "Paid", value: "paid" },
+          { title: "Shipped", value: "shipped" },
+          { title: "Delivered", value: "delivered" },
+          { title: "Canceled", value: "canceled" },
+        ],
+      },
+    }),
   ],
 });
