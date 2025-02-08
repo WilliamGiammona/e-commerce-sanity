@@ -66,5 +66,3 @@ export const productType = defineType({
     },
   },
 });
-
-export default productType;
