@@ -1,7 +1,10 @@
-import React from "react";
+import { Button } from "@/components/ui/button";
 
-const page = () => {
-  return <div>page</div>;
-};
-
-export default page;
+export default function Home() {
+  return (
+    <div className="">
+      Hello World
+      <Button>Click Me</Button>
+    </div>
+  );
+}
