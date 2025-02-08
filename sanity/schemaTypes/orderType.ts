@@ -109,4 +109,22 @@ export const orderType = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      name: "customerName",
+      amount: "totalPrice",
+      currency: "currency",
+      orderId: "orderNumber",
+      email: "email",
+    },
+    prepare: (select) => {
+      const { name, amount, currency, orderId, email } = select;
+      const orderIdSnippit = `${orderId.slice(0, 5)}...${orderId.slice(-5)}`;
+      return {
+        title: `${name} x (${orderIdSnippit}) `,
+        subtitle: `${amount} x ${currency} ${email}`,
+        media: BasketIcon,
+      };
+    },
+  },
 });
