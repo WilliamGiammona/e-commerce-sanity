@@ -1,6 +1,12 @@
 import React from "react";
-
-const SearchPage = () => {
+const SearchPage = async ({
+  searchParams,
+}: {
+  searchParams: {
+    query: string;
+  };
+}) => {
+  const { query } = await searchParams;
   return <div>Search Page</div>;
 };
 
