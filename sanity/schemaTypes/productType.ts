@@ -3,7 +3,7 @@ import { TrolleyIcon } from "@sanity/icons";
 
 export const productType = defineType({
   name: "product",
-  title: "Products",
+  title: "Product type",
   type: "document",
   icon: TrolleyIcon,
   fields: [
@@ -48,6 +48,12 @@ export const productType = defineType({
       title: "Categories",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
+    }),
+    defineField({
+      name: "stock",
+      title: "Stock",
+      type: "number",
+      validation: (Rule) => Rule.required().min(0),
     }),
   ],
   preview: {
