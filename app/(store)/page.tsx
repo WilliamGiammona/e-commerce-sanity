@@ -12,6 +12,7 @@ export default async function Home() {
       {/* render all products */}
       <div className="flex flex-col items-center justify-top min-h-screen bg-gray-100 p-4">
         <ProductsView products={products} categories={categories} />
+        hi
       </div>
     </div>
   );

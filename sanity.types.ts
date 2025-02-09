@@ -92,6 +92,9 @@ export type Order = {
   orderNumber?: string;
   stripeCheckoutSessionId?: string;
   stripeCustomerId?: string;
+  clerkUserId?: string;
+  customerName?: string;
+  email?: string;
   stripePaymentIntentId?: string;
   products?: Array<{
     product?: {
