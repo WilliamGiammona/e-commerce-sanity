@@ -3,7 +3,7 @@ import { TrolleyIcon } from "@sanity/icons";
 
 export const productType = defineType({
   name: "product",
-  title: "Product type",
+  title: "Products",
   type: "document",
   icon: TrolleyIcon,
   fields: [
@@ -65,9 +65,9 @@ export const productType = defineType({
     prepare: (select) => {
       const { title, media, price } = select;
       return {
-        title,
+        title: title,
         subtitle: `$${price}`,
-        media,
+        media: media,
       };
     },
   },

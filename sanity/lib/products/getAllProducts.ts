@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
 
-export async function getAllProducts() {
+export const getAllProducts = async () => {
   const ALL_PRODUCTS_QUERY = defineQuery(`
     *[
         _type == "product"
@@ -20,4 +20,4 @@ export async function getAllProducts() {
     console.error("Error fetching all products", error);
     return [];
   }
-}
+};
