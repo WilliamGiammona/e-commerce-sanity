@@ -4,7 +4,7 @@ import Image from "next/image";
 import { imageUrl } from "@/lib/imageUrl";
 
 function ProductThumb({ product }: { product: Product }) {
-  const isOutOfStock = product.stock != null && product.stock < 0;
+  const isOutOfStock = product.stock != null && product.stock <= 0;
 
   return (
     <Link
