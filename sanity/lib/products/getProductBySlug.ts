@@ -12,13 +12,15 @@ export const getProductBySlug = async (slug: string) => {
     //Use Sanity Fetch to send the query with the slug as a parameter
     const product = await sanityFetch({
       query: PRODUCT_BY_ID_QUERY,
-      params: { slug },
+      params: {
+        slug,
+      },
     });
 
     // return the product data or null if not found
-    return product.data || [];
+    return product.data || null;
   } catch (error) {
     console.error("Error fetching product by ID", error);
-    return [];
+    return null;
   }
 };
