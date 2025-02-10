@@ -58,7 +58,7 @@ const Header = () => {
             <SignedIn>
               <Link
                 href="/orders"
-                className="flex-1 relative flex justify-center sm:flex-none items-center space-x-2 bg-blue-500 "
+                className="flex-1 relative flex justify-center  sm:flex-none items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               >
                 <PackageIcon className="h-6 w-6" />
                 <span>My Orders</span>
@@ -68,12 +68,12 @@ const Header = () => {
             {user ? (
               <div className="flex items-center space-x-2">
                 <UserButton />
-                <Link
+                {/* <Link
                   href="/signout"
                   className="text-blue-500 hover:opacity-50 cursor-pointer"
                 >
                   Sign Out
-                </Link>
+                </Link> */}
                 <div className="hidden sm:block text-xs">
                   <p className="text-gray-400">Welcome Back</p>
                   <p className="font-bold">{user.fullName}!</p>
