@@ -162,7 +162,7 @@ export type Product = {
     _type: "image";
     _key: string;
   }>;
-  price?: string;
+  price?: number;
   categories?: Array<{
     _ref: string;
     _type: "reference";
@@ -346,7 +346,7 @@ export type ALL_PRODUCTS_QUERYResult = Array<{
     _type: "image";
     _key: string;
   }>;
-  price?: string;
+  price?: number;
   categories?: Array<{
     _ref: string;
     _type: "reference";

@@ -40,7 +40,7 @@ export const productType = defineType({
     defineField({
       name: "price",
       title: "Price",
-      type: "string",
+      type: "number",
       validation: (Rule) => Rule.required().min(0),
     }),
     defineField({
