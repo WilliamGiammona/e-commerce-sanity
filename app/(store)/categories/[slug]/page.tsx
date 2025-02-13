@@ -1,6 +1,8 @@
 import React from "react";
 
-function CategoryPage() {
+async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const products = await getProductsByCategory(slug);
   return <div>CategoryPage</div>;
 }
 
