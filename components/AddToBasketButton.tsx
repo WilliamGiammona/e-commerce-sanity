@@ -37,7 +37,9 @@ function AddToBasketButton({ product, disabled }: AddToBasketButtonProps) {
       >
         <span
           className={`text-xl font-bold ${itemCount === 0 ? "text-gray-400" : "text-gray-600"}`}
-        ></span>
+        >
+          -
+        </span>
       </button>
       <span className="w-8 text-center font-semibold">{itemCount}</span>
       <button
@@ -50,7 +52,7 @@ function AddToBasketButton({ product, disabled }: AddToBasketButtonProps) {
             }`}
         disabled={disabled}
       >
-        <span className="text-xl font-bold text-white"></span>
+        <span className="text-xl font-bold text-white">+</span>
       </button>
     </div>
   );
