@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
+import { useBasketStore } from "../store";
 
-function page() {
+function BasketPage() {
+  const groupedItems = useBasketStore((state) => state.getGroupedItems());
   return <div>page</div>;
 }
 
-export default page;
+export default BasketPage;
