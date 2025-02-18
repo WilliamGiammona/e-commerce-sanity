@@ -9,9 +9,13 @@ import {
 import Link from "next/link";
 import Form from "next/form";
 import { PackageIcon, TrolleyIcon } from "@sanity/icons";
+import { useBasketStore } from "@/app/(store)/store";
 
 const Header = () => {
   const { user } = useUser();
+  const itemCount = useBasketStore((state) =>
+    state.items.reduce((total, item) => total + item.quantity, 0)
+  );
 
   const createClerkPasskey = async () => {
     try {
@@ -50,7 +54,10 @@ const Header = () => {
             className="flex-1 relative flex justify-center  sm:flex-none items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             <TrolleyIcon className="h-6 w-6" />
-            {/*Span Item Count Once Global State Is Implemented*/}
+
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+              {itemCount}
+            </span>
             <span>My Basket</span>
           </Link>
 
