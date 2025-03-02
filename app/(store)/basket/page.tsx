@@ -9,6 +9,7 @@ import Image from "next/image";
 import { imageUrl } from "@/lib/imageUrl";
 import Loader from "@/components/Loader";
 import { Metadata } from "../../../actions/createCheckoutSession";
+import { createCheckoutSession } from "@/actions/createCheckoutSession";
 
 function BasketPage() {
   const groupedItems = useBasketStore((state) => state.getGroupedItems());
