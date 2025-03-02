@@ -9,7 +9,7 @@ export type Metadata = {
   clerkUserId: string;
 };
 
-export type GroupBasketItem = {
+export type GroupedBasketItem = {
   product: BasketItem["product"];
   quantity: number;
 };
