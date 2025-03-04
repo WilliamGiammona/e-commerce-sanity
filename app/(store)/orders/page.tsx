@@ -7,6 +7,9 @@ async function Orders() {
   if (!userId) {
     return redirect("/");
   }
+
+  const orders = await getMyOrders(userId);
+
   return <div>Orders</div>;
 }
 
