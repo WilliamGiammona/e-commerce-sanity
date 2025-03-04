@@ -73,4 +73,13 @@ async function createOrderInSanity(session: Stripe.Checkout.Session) {
       expand: ["data.price.product"],
     }
   );
+
+  const sanityProducts = lineItemsWithProduct.data.map((item) => ({
+    _key: crypto.randomUUID(),
+    product: {
+      _type: "reference",
+      _ref: (item.price?.product as Stripe.Product)?.metadata?.id,
+    },
+    quantity: item.quantity || 0,
+  }));
 }
