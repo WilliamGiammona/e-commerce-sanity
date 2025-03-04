@@ -280,6 +280,34 @@ export type SanityImageMetadata = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Sale | Order | Product | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./sanity/lib/orders/getMyOrders.tsx
+// Variable: MY_ORDERS_QUERY
+// Query: *[        _type == "order" && clerkUserId == $userId    ] | order(orderDate desc){        ...,        products[]{            ...,            product->{            }        }    }
+export type MY_ORDERS_QUERYResult = Array<{
+  _id: string;
+  _type: "order";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  orderNumber?: string;
+  stripeCheckoutSessionId?: string;
+  stripeCustomerId?: string;
+  clerkUserId?: string;
+  customerName?: string;
+  email?: string;
+  stripePaymentIntentId?: string;
+  products: Array<{
+    product: {} | null;
+    quantity?: number;
+    _key: string;
+  }> | null;
+  totalPrice?: number;
+  currency?: string;
+  amountDiscount?: number;
+  status?: "canceled" | "delivered" | "paid" | "pending" | "shipped";
+  orderDate?: string;
+}>;
+
 // Source: ./sanity/lib/products/getAllCategories.ts
 // Variable: ALL_CATEGORIES_QUERY
 // Query: *[        _type == "category"    ] | order(name asc)
@@ -568,6 +596,7 @@ export type ACTIVE_SALE_BY_COUPON_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "\n    *[\n        _type == \"order\" && clerkUserId == $userId\n    ] | order(orderDate desc){\n        ...,\n        products[]{\n            ...,\n            product->{\n            }\n        }\n    }\n    ": MY_ORDERS_QUERYResult;
     "\n    *[\n        _type == \"category\"\n    ] | order(name asc)\n    ": ALL_CATEGORIES_QUERYResult;
     "\n    *[\n        _type == \"product\"\n    ] | order(name asc)\n    ": ALL_PRODUCTS_QUERYResult;
     "\n    *[\n        _type == \"product\" && slug.current == $slug\n    ] | order(name asc)[0]\n    ": PRODUCT_BY_ID_QUERYResult;
