@@ -17,4 +17,20 @@ export async function POST(req: NextRequest) {
   }
 
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  if (!webhookSecret) {
+    console.log("Stripe webhook secret is not set");
+    return NextResponse.json(
+      { error: "Stripe webhook secret is not set" },
+      { status: 400 }
+    );
+  }
+
+  let event: Stripe.Event;
+  try {
+    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+  } catch (err) {
+    console.log("Webhook signature verification failed", err);
+    return NextResponse.json({ error: "Webhook Error" }, { status: 400 });
+  }
 }
