@@ -66,4 +66,11 @@ async function createOrderInSanity(session: Stripe.Checkout.Session) {
 
   const { orderNumber, customerName, customerEmail, clerkUserId } =
     metadata as Metadata;
+
+  const lineItemsWithProduct = await stripe.checkout.sessions.listLineItems(
+    id,
+    {
+      expand: ["data.price.product"],
+    }
+  );
 }
