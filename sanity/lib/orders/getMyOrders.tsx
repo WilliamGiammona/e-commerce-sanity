@@ -1,3 +1,5 @@
+import { defineQuery } from "next-sanity";
+
 export async function getMyOrders(userId: string) {
   if (!userId) {
     throw new Error("User ID is required");
