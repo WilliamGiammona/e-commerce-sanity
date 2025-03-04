@@ -3,7 +3,7 @@ export function formatCurrency(
   currencyCode: string = "USD"
 ): string {
   try {
-    return new Intl.NumberFormat("en-USD", {
+    return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: currencyCode.toUpperCase(),
     }).format(amount);
