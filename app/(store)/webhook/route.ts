@@ -3,6 +3,7 @@ import { backendClient } from "@/sanity/lib/backendClient";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import { Metadata } from "@/actions/createCheckoutSession";
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -62,4 +63,7 @@ async function createOrderInSanity(session: Stripe.Checkout.Session) {
     customer,
     total_details,
   } = session;
+
+  const { orderNumber, customerName, customerEmail, clerkUserId } =
+    metadata as Metadata;
 }
