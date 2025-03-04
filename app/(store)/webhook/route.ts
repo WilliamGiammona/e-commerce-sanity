@@ -33,4 +33,19 @@ export async function POST(req: NextRequest) {
     console.log("Webhook signature verification failed", err);
     return NextResponse.json({ error: "Webhook Error" }, { status: 400 });
   }
+
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+
+    try {
+      const order = await createOrderInSanity(session);
+      console.log("Order created in Sanity:", order);
+    } catch (error) {
+      console.error("Error creating order in Sanity:", error);
+      return NextResponse.json(
+        { error: "Error creating order" },
+        { status: 500 }
+      );
+    }
+  }
 }
