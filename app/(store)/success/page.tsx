@@ -10,6 +10,12 @@ function SuccessPage() {
   const searchParams = useSearchParams();
   const orderNumber = searchParams.get("orderNumber");
   const clearBasket = useBasketStore((state) => state.clearBasket);
+
+  useEffect(() => {
+    if (orderNumber) {
+      clearBasket();
+    }
+  }, [orderNumber, clearBasket]);
 }
 
 export default SuccessPage;
