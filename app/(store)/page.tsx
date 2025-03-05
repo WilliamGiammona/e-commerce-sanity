@@ -4,7 +4,7 @@ import ProductsView from "@/components/ProductsView";
 import BlackFridayBanner from "@/components/BlackFridayBanner";
 
 export const dynamic = "force-static";
-export const revalidate = 60; // revalidate at most every 60 seconds
+export const revalidate = 600; // revalidate at most every 60 seconds
 
 export default async function Home() {
   const products = await getAllProducts();
