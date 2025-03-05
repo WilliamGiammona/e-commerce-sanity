@@ -5,13 +5,14 @@ import Header from "@/components/Header";
 import { SanityLive } from "@/sanity/lib/live";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
+import { DisableDraftMode } from "@/components/DisableDraftMode";
 
 export const metadata: Metadata = {
   title: "E-Commerce",
   description: "E-Commerce Store",
 };
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -20,6 +21,13 @@ export default function Layout({
     <ClerkProvider dynamic>
       <html lang="en">
         <body>
+          {(await draftMode()).isEnabled && (
+            <>
+              <DisableDraftMode />
+              <VisualEditing />
+            </>
+          )}
+
           <main>
             <Header />
             {children}
