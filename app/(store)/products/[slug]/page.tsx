@@ -5,6 +5,9 @@ import { imageUrl } from "@/lib/imageUrl";
 import { PortableText } from "next-sanity";
 import AddToBasketButton from "@/components/AddToBasketButton";
 
+export const dynamic = "force-static";
+export const revalidate = 60;
+
 async function ProductPage({
   params,
 }: {
