@@ -6,7 +6,7 @@ import { PortableText } from "next-sanity";
 import AddToBasketButton from "@/components/AddToBasketButton";
 
 export const dynamic = "force-static";
-export const revalidate = 60;
+export const revalidate = 600;
 
 async function ProductPage({
   params,
