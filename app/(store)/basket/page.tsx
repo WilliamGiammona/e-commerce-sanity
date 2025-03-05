@@ -111,8 +111,8 @@ function BasketPage() {
         >
           <h3 className="text-xl font-semibold">Order Summary</h3>
           <div className="mt-4 space-y-2">
-            <p className="flex jusity-between">
-              <span>Items:</span>
+            <p className="flex justify-between">
+              <span>Items: </span>
               <span>
                 {groupedItems.reduce((total, item) => total + item.quantity, 0)}
               </span>
