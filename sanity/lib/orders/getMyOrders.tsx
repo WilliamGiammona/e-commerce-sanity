@@ -9,8 +9,7 @@ export async function getMyOrders(userId: string) {
   // Define the query to get orders based on the user ID, sorted by orderDate descending.
 
   const MY_ORDERS_QUERY = defineQuery(`
-    *[
-        _type == "order" && clerkUserId == $userId] | order(orderDate desc){
+    *[_type == "order" && clerkUserId == $userId] | order(orderDate desc){
         ...,
         products[]{
             ...,
@@ -23,9 +22,7 @@ export async function getMyOrders(userId: string) {
     // Use sanity fetch to send the query
     const orders = await sanityFetch({
       query: MY_ORDERS_QUERY,
-      params: {
-        userId,
-      },
+      params: { userId },
     });
 
     // Return the list of orders, or an empty array if none are found
