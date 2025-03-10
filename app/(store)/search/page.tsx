@@ -1,5 +1,5 @@
-import { searchProductsByName } from "@/sanity/lib/products/searchProductsByName";
 import ProductGrid from "@/components/ProductGrid";
+import { searchProductsByName } from "@/sanity/lib/products/searchProductsByName";
 
 const SearchPage = async ({
   searchParams,
@@ -8,7 +8,7 @@ const SearchPage = async ({
     query: string;
   };
 }) => {
-  const { query } = searchParams;
+  const { query } = await searchParams;
   const products = await searchProductsByName(query);
 
   if (!products.length) {
