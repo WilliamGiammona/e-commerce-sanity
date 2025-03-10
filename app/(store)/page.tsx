@@ -9,7 +9,6 @@ export const revalidate = 600; // revalidate at most every 60 seconds
 export default async function Home() {
   const products = await getAllProducts();
   const categories = await getAllCategories();
-  console.log("Products:", products);
 
   return (
     <div>
