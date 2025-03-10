@@ -8,7 +8,7 @@ const SearchPage = async ({
     query: string;
   };
 }) => {
-  const { query } = await searchParams;
+  const { query } = searchParams;
   const products = await searchProductsByName(query);
 
   if (!products.length) {
