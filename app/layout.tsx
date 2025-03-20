@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "E-Commerce",
   description: "E-Commerce Store",
+  icons: {
+    icon: "/logo.jpeg",
+  },
 };
 
 export default function RootLayout({
