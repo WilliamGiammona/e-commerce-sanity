@@ -8,9 +8,9 @@ const Disclaimer = () => {
           Disclaimer
         </h1>
         <p className="text-lg md:text-xl text-black leading-relaxed">
-          This website is for demonstration purposes only. Please only use test
+          This website is for demonstration purposes only! Please only use test
           payment methods recommended by stripe, real transactions will not be
-          accepted and no products will be delivered
+          accepted and no products will be delivered.
         </p>
       </div>
     </div>
